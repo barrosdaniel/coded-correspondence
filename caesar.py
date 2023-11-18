@@ -1,6 +1,7 @@
 message = "xuo jxuhu! jxyi yi qd unqcfbu ev q squiqh syfxuh. muhu oek qrbu je tusetu yj? y xefu ie! iudt cu q cuiiqwu rqsa myjx jxu iqcu evviuj!"
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
+special_characters = "`~!@#$%^&*()_+-=[]|;':,./<>? "
 
 def create_decrypt_alphabet(alphabet, offset):
     encrypt_alphabet = ""
@@ -20,7 +21,7 @@ def decrypt(message, offset):
     decrypted_message = ""
     decrypt_alphabet = create_decrypt_alphabet(alphabet, offset)
     for letter in message:
-        if letter == " " or letter == "!" or letter == "?" or letter == ".":
+        if letter in special_characters:
             decrypted_message += letter
         else:
             letter_index = decrypt_alphabet.find(letter)
@@ -35,7 +36,7 @@ def encrypt(message, offset):
     encrypted_message = ""
     encrypt_alphabet = create_encrypt_alphabet(alphabet, offset)
     for letter in message:
-        if letter in "`~!@#$%^&*()_+-=[]|;':,./<>? ":
+        if letter in special_characters:
             encrypted_message += letter
         else:
             letter_index = encrypt_alphabet.find(letter)
