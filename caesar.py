@@ -1,8 +1,6 @@
 message = "xuo jxuhu! jxyi yi qd unqcfbu ev q squiqh syfxuh. muhu oek qrbu je tusetu yj? y xefu ie! iudt cu q cuiiqwu rqsa myjx jxu iqcu evviuj!"
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-decrypt_alphabet = "qrstuvwxyzabcdefghijklmnop"
-encrypt_alphabet = "klmnopqrstuvwxyzabcdefghij"
 
 def create_decrypt_alphabet(alphabet, offset):
     encrypt_alphabet = ""
@@ -37,7 +35,7 @@ def encrypt(message, offset):
     encrypted_message = ""
     encrypt_alphabet = create_encrypt_alphabet(alphabet, offset)
     for letter in message:
-        if letter == " " or letter == "!" or letter == "?" or letter == ".":
+        if letter in "`~!@#$%^&*()_+-=[]|;':,./<>? ":
             encrypted_message += letter
         else:
             letter_index = encrypt_alphabet.find(letter)
@@ -52,3 +50,9 @@ print(decrypt(message, 10))
 
 message = "bqdradyuzs ygxfubxq omqemd oubtqde fa oapq kagd yqeemsqe ue qhqz yadq eqogdq!"
 print(decrypt(message, 14))
+
+# Brute force
+message = "vhfinmxkl atox kxgwxkxw tee hy maxlx hew vbiaxkl hulhexmx. px'ee atox mh kxteer lmxi ni hnk ztfx by px ptgm mh dxxi hnk fxlltzxl ltyx."
+
+for i in range(26):
+    print(decrypt(message, i))
